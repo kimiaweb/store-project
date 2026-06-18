@@ -5,6 +5,8 @@ A simple e-commerce website built with HTML, CSS, and JavaScript.
 ## Overview
 
 This project is a front-end e-commerce website developed as a portfolio project. It includes product browsing, shopping cart management, user authentication interfaces, product reviews, and rating functionality.
+## How to Run
+Open `index4.html` in your browser.
 
 ## Features
 
