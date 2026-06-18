@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>سبد خرید</title>
+    <style>
+        
+         @font-face {
+            font-family:"BYEKAN" ;
+            src: url("BYekan.ttf");
+        }
+        
+            
+        *{
+            box-sizing: border-box;
+            font-family:"BYEKAN" ;
+        }
+        body{
+            
+            background-color: rgb(224, 217, 217);
+            color: white;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            
+            
+            
+            
+        }
+       
+
+
+
+
+
+
+
+
+    ::-webkit-scrollbar{
+        width:26px ;
+        
+        
+    }
+    ::-webkit-scrollbar-thumb{
+        border: 10px solid transparent;
+        border-radius: 999px;
+        background: rgb(80, 79, 79);
+        background-clip: padding-box;
+        
+
+    }
+    ::-webkit-scrollbar-track{
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+        background-color: gray;
+    }
+
+    
+        #navcontainer{
+            position: absolute;
+            right:  0;
+            
+            width: 40%;
+            height: 100%;
+            
+
+        }
+
+        
+
+
+        
+
+        #listnav{
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            flex-direction: row-reverse;
+            position: absolute;
+            right: 2px;
+            top: 20px;
+           
+            
+
+        }
+        
+        .linknav{
+            text-decoration: none;
+           
+        }
+
+        .imgnav:hover{
+            transform: scale(1.1);
+            
+        }
+
+        #search{
+           
+            display: inline-block;
+            position: absolute;
+        
+            left: 0;
+            top:40px;
+            border: transparent;
+
+        
+            border-radius: 20px;
+            height: 35px;
+            width: 50%;
+        }
+        #search:focus{
+            outline: none;
+
+        }
+         #searchproduct{
+            transition: 0.6s;
+        }
+        #searchproduct:hover{
+            background-color: rgb(161, 161, 202);
+
+        }
+        
+
+        #loginorsignin{
+            position: absolute;
+            left:40%;
+            width:20% ;
+            height: 100%;
+            
+            
+        } 
+
+        nav{
+            background-color: rgb(224, 217, 217);
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        
+        #loginimg{
+
+            position: absolute;
+            top:36px;
+            right: 15px;
+            cursor: pointer;
+            
+            
+
+             
+            
+        }
+         
+    
+        
+        #welcomemsg{
+            position: absolute;
+            right:65px;
+            top: 45px;
+            color: rgb(73, 50, 156);
+            font-size: 15px;
+            cursor: pointer;
+            
+        }
+
+
+       
+        #logoutbutton{
+            position: absolute;
+            left: 120px;
+            top: 40px;
+            border-radius: 40px;
+            border: transparent;
+            height: 30px;
+            display: none;
+            background-color:rgb(73, 50, 156) ;
+            color: white;
+            
+        }
+        #logoutbutton:hover{
+            background-color:white ;
+            color: rgb(73, 50, 156) ;
+
+        }
+        #changingbutton{
+            position: absolute;
+            left: 65px;
+            top: 80px;
+            border-radius: 40px;
+            border: transparent;
+            height: 30px;
+            display: none;
+            background-color:rgb(73, 50, 156) ;
+            color: white;
+        }
+        #changingbutton:hover{
+            background-color:white;
+            color: rgb(73, 50, 156) ;
+
+        }
+        #checkinfo{
+            width: 100%;
+            height: 300px;
+            background-color:white;
+            position: absolute;
+            display: none;
+            border-radius: 15px;
+            top: 100%;
+
+        }
+        
+        #form1{
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            right:5px;
+            font-size: 15px;
+            color: rgb(73, 50, 156);
+        }
+        #checkpass{
+            position: absolute;
+            display: inline;
+            width: 40%;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        #checkpass:focus{
+            outline: none;
+        }
+        
+        #closecheckinfo{
+            position: absolute;
+            left: 70px;
+            border: 1px solid black;
+            border-radius: 5px;  
+        }
+        #closecheckinfo:hover{
+            background-color:rgb(73, 50, 156) ;
+            color: white;
+        }
+        #gotochange{
+            position: absolute;
+            left: 17px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        #gotochange:hover{
+            background-color:rgb(73, 50, 156) ;
+            color: white;
+        }
+        
+        #changeinfo{
+            width: 100%;
+            height: 300px;
+            background-color:white;
+            position: absolute;
+            display: none;
+            top: 100%;
+            border-radius: 15px;
+            
+        }
+        #form2{
+            
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            right:5px;
+            font-size: 15px;
+            color: rgb(73, 50, 156);
+        }
+        #changename, #changenumber, #changeemail, #changepass, #changepass2{
+            position: absolute;
+            left:17px;
+            width: 40%;
+            border: 1px solid black;
+            border-radius: 5px;
+            
+        }
+        #changename:focus, #changenumber:focus, #changeemail:focus, #changepass:focus, #changepass2:focus{
+            outline: none;
+        }
+        #closechangeinfo{
+            position: absolute;
+            left:105px ;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        #closechangeinfo:hover{
+            background-color:rgb(73, 50, 156) ;
+            color: white;
+
+        }
+        #changing{
+            position: absolute;
+            left:17px ;
+            border: 1px solid black;
+            border-radius: 5px;
+
+        }
+        #changing:hover{
+            background-color:rgb(73, 50, 156) ;
+            color: white;
+
+        }
+        
+      #phoneimg{
+        position: fixed;
+        bottom: 10px;
+        left: 6px;
+        z-index: 4;
+      }
+       #phoneimg:hover{
+        transform: scale(1.1);
+      }
+      
+      #phonenum{
+        visibility: hidden;
+        
+        position: fixed;
+        bottom: 6px;
+        left: 62px;
+        z-index: 5;
+        color: white;
+        background-color: rgb(73, 50, 156);
+       
+        
+
+      }
+      
+
+    .active{
+        background-color: white;
+        
+        border-radius: 15px;
+    
+        color: black;
+        font-size: 18px;
+        
+        height: 280px;
+        position: absolute;
+        top: 52px;
+        left: 0;
+        width: 50%;
+        
+        
+        overflow: auto;
+
+    }
+    #results{
+        display: none;
+    }
+    .active2{
+        background-color: white;
+        border-radius: 15px;
+        color: black;
+        font-size: 18px;
+        height: 400px;
+        width: 180px;
+        position: absolute;
+        top: 100px;
+        z-index: 3;
+        
+        
+    }
+    #results2{
+        position: absolute;
+        z-index: 4;
+        
+        right: 10px;
+        display: none;
+        
+    }
+    #listcategory{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        list-style-type: none;
+
+    }
+    .linkcategory{
+        text-decoration: none;
+    }
+    #buycontainer{
+        background-color: rgb(206, 204, 224);
+        
+        position: absolute;
+        top: 140px;
+        right: 5%;
+        left: 5%;
+        padding: 30px;
+        overflow: auto;
+        overflow-anchor: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        color: white;
+        font-size: 18px;
+        width: 50%;
+        height: 435px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 10px black;
+        
+    }
+    #total-price{
+        padding-top: 15%;
+         
+        height: 370px;
+        overflow-y: auto;
+        
+        
+        
+    }
+    #product-image ,#product-image2{
+        border-radius: 15px;
+    }
+    #cancelbutton1 , #cancelbutton2{
+        background-color: rgb(73, 50, 156);
+        color: white;
+    }
+    #payment{
+       
+        width: 40%;
+        height: 630px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display:flex ;
+        flex-direction: column;
+        gap: 33px;
+        align-items: center;
+    }
+    #sabadkharid{
+        margin-top: 30px;
+        text-align: center;
+        color:rgb(73, 50, 156) ;
+        width: 100%;
+
+    }
+    #paymentinfo{
+        width: 60%;
+        height: 480px;
+        background-color: rgb(70, 14, 224);
+        border-radius: 20px;
+        box-shadow: 5px 5px 10px rgb(70, 69, 69);
+        direction: ltr;
+    }
+    #paymentinfo >{
+        direction: rtl;
+    }
+    #submit{
+        background-color:rgb(3, 3, 100);
+        color:white;
+        font-size: 15px;
+        border:transparent; 
+        margin-right:30%;
+        margin-left:30%;
+        margin-top: 30px;
+        width:40%;
+        padding:5px;
+        border-radius:10px;
+        box-shadow:4px 4px 3px black;
+        display: none;
+    }
+    #productinfo{
+        background-color:rgb(171, 182, 243);
+        box-shadow: 5px 5px 10px rgb(70, 69, 69);
+        width: 57%;
+        position: absolute;
+        height: 480px;
+        top: 130px;
+        right: 3%;
+        border-radius: 20px;
+        display: flex;
+        gap: 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        direction: ltr;
+        
+        
+    }
+    #productinfo >*{
+        direction: rtl;
+    }
+   
+    #senoqte{
+        position: absolute;
+        left: 5px;
+        top: 10px;
+    }
+    #menu-options{
+        display: none;
+        position: absolute;
+        top: 10px;
+        left: 30px;
+         background-color:rgb(73, 50, 156);
+        color:white;
+        padding:5px;
+        border-radius:10px;
+        border: transparent;
+        cursor: pointer;
+    }
+    #menu-options:hover{
+        background-color:white;
+         
+            color: rgb(73, 50, 156);
+
+    }
+    footer{
+        background-color: rgb(194, 189, 189);
+        color: black;
+        width: 100%;
+        height: 220px;
+        position: absolute;
+        top: 700px;
+        display: flex;
+        flex-direction: column;
+     }
+#footer1{
+    
+    
+    
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    height: 20%;
+    
+}
+#footer1a{
+    display: flex;
+}
+
+#footer3{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    height: 80%;
+    
+
+}
+#footer3a{
+    
+    width: 82%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+#footer3aa,#footer3ab,#footer3ac{
+    text-align: center;
+}
+#footer3b{
+    
+    width: 18%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.footerIcon{
+    cursor: pointer;
+}
+.footerIcon:hover{
+    transform: scale(1.1);
+}
+    
+    
+    
+    
+    
+  
+
+    </style>
+</head>
+<body>
+    
+    
+    <nav>
+    <div id="navcontainer">
+        <ul id="listnav">
+        <li><a id="categorization" class="linknav" href=""><img class="imgnav" src="Category.svg" style="width: 50px; height: 50px;"></a></li>
+        <li><a class="linknav" href="" ><img class="imgnav" src="sabad kharid.svg" style="width: 50px; height: 50px;"></a></li>
+        <li ><a  class="linknav" href="welcome.html"><img  src="Home.svg" style="width: 50px; height: 50px;"></a></li>
+        </ul>
+
+        
+        <input id="search" type="text" placeholder="   جستجو " oninput="displaySearchResults()">
+        <p id="results"> </p>
+
+    </div>
+        
+
+    
+    <div id="loginorsignin">
+       <img id="loginimg" src="Asset 530.svg" style="width: 40px; height: 40px;">
+       
+
+
+       <div id="checkinfo">
+        <form id="form1">
+            <label for="checkpass">رمز فعلی خود را وارد کنید:</label>
+            <br>
+            <br>
+            <input id="checkpass" type="password">
+            
+            <button id="gotochange" onclick="showchangeinfo(event)">ادامه</button>
+            <button id="closecheckinfo" onclick="hidecheckinfo()">بستن</button>
+        </form>
+        </div>
+
+
+        
+       <div id="changeinfo">
+       <form id="form2">
+       <label for="changename">تغییرنام:</label>
+       <input id="changename" type="text">
+       <br>
+       <br>
+       
+       <label for="changenumber">تغییر شماره تلفن:</label>
+       <input id="changenumber" type="tel">
+       <br>
+       <br>
+       
+       <label for="changeemail">تغییر ایمیل:</label>
+       <input id="changeemail" type="email">
+       <br>
+       <br>
+
+       <label for="changepass">تغییر رمز:</label>
+       <input id="changepass" type="password">
+       <br>
+       <br>
+
+       <label for="changepass2">تکرار رمز تغییر یافته:</label>
+       <input id="changepass2" type="password">
+       <br>
+       <br>
+       
+       
+       <button id="closechangeinfo" onclick="hidechangeinfo()">بستن</button>
+       <button id="changing" onclick="changeInformation()">تغییر اطلاعات</button>
+
+
+       </form>
+
+
+       </div>
+
+       
+       
+       
+       <button id="changingbutton" onclick="showcheckinfo()">ویرایش اطلاعات</button> 
+       <div id="welcomemsg"></div>
+       
+       <button id="logoutbutton" onclick="logout()">خروج</button>
+        <img id="phoneimg" src="Asset 630.svg" style="width: 46px; height: 46px;" onmouseover="showNumber()" onmouseout="hideNumber()">
+        <p id="phonenum" >86867</p>
+        
+    </article>
+
+    </div>
+    <div id="results2">
+            <ul id="listcategory">
+                <li><a class="linkcategory" href="">a</a></li>
+                <li><a class="linkcategory" href="">b</a></li>
+            </ul>
+            
+
+        </div>
+    
+    <div id="payment">
+        <div id="sabadkharid">
+            <p >سبد خرید</p>
+            <hr style="border: 1px solid rgb(73, 50, 156); width: 50%;">
+            
+        </div>
+        <div id="paymentinfo">
+            <div id="total-price"></div>
+            <button id="submit">تایید و تکمیل خرید</button>
+            
+
+        </div>
+
+    </div>
+    </nav>
+    
+    
+    <div id="productinfo">
+        
+    <img id="senoqte" src="se noqte.svg" width="18px" height="18px">
+       
+            <button id="menu-options" onclick="clearCart()">پاک کردن همه</button>
+        
+    <div id="cart-items"></div>
+    
+    <div id="empty-cart" style="display: none;
+    margin: auto;
+    font-weight: bold;">سبد خرید شما خالی است.</div>
+    
+
+
+
+    </div>
+       
+
+
+
+       <footer>
+        <div id="footer1">
+            <div id="footer1a">
+                <p>تلفن پشتیبانی:
+                    22219627-021
+                </p>
+                <p style="margin-right: 10px; margin-left: 10px; color: gray;">
+                    |
+                </p>
+                <p>
+                    هفت روز هفته پاسخگوی شما هستیم.
+                </p>
+            </div>
+
+        </div>
+
+        <div id="footer2">
+            
+        </div>
+
+        <div id="footer3">
+            <div id="footer3a">
+
+                <div id="footer3aa">
+                    <h4>درباره‌ی سایت</h4>
+                    <a href="" style="color: rgb(75, 74, 74); text-decoration: none;">انتقادات و پیشنهادات</a>
+                    <br>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;">گزارش باگ</a>
+
+                </div>
+
+
+                <div id="footer3ab">
+
+                    <h4>خدمات مشتریان</h4>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;" >رویه‌های بازگرداندن کالا</a>
+                    <br>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;">شرایط پرداخت در محل</a>
+
+                </div>
+
+
+                <div id="footer3ac"> 
+
+                    <h4>راهنمای خرید از سایت</h4>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;" >نحوه‌ی ثبت سفارش</a>
+                    <br>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;">رویه ارسال سفارش</a>
+
+                </div>
+            </div>
+            
+            <div id="footer3b">
+        
+            <img class="footerIcon" src="Instagram (رسانیکا) (1).png" alt="" width="40px" height="40px">
+            <img class="footerIcon" src="Email (رسانیکا) (1).png" alt="" width="40px" height="40px">
+            <img class="footerIcon" src="Location (رسانیکا).png" alt="" width="40px" height="40px">
+
+            </div>
+            
+        </div>
+
+
+
+    </footer> 
+        
+        
+
+
+    
+    
+    
+    
+
+
+    <script>
+     
+function getCart() {
+    const cart = sessionStorage.getItem(getCartKey());
+    return cart ? JSON.parse(cart) : [];
+}
+
+function renderCartItems() {
+   const cartItems = getCart();
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+    const emptyCartMessage = document.getElementById('empty-cart');
+    const submitButton=document.getElementById("submit")
+        
+    cartItemsContainer.innerHTML = '';
+    totalPriceElement.innerHTML = '';
+
+    let totalPrice = 0;
+    let totalBeforeDiscount = 0;
+
+    if (cartItems.length === 0) {
+        emptyCartMessage.style.display = 'block';
+        submitButton.style.display="none"
+        return;
+    } else {
+        emptyCartMessage.style.display = 'none';
+        submitButton.style.display='block'
+    }
+    
+    let paymentHTML = "";
+
+    cartItems.forEach((item, index) => {
+
+        const beforeDiscountPrice = item.price * item.quantity;
+        const afterDiscountPrice = item.aftersale * item.quantity;
+
+        totalPrice += afterDiscountPrice;
+        totalBeforeDiscount += beforeDiscountPrice;
+
+        cartItemsContainer.innerHTML += `
+        
+    <div style="width:700px; height:180px; overflow-y:auto;
+    display:flex; margin-right:30px; margin-left:30px; margin-top:50px;">
+
+        <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}" 
+                style="width: 100px; height: 100px; margin-right: 10px; border-radius:5px;">
+         </div>
+
+        <div style="text-align:center; color:rgb(70, 14, 224); margin-right:10px;">
+                <h4>${item.name}</h4>
+                <p style="color:rgb(70, 69, 69);">
+                کد محصول:
+                ${item.id}
+                </p>
+                <p style="color:rgb(70, 69, 69);"> رنگ:
+                    ${item.color}
+                    ،
+                    سایز:
+
+                    ${item.size}
+
+                     
+                    </p>
+                    
+        </div>
+
+        <div style="flex-grow:5; font-size:14px; display:flex; flex-direction:column; align-items:flex-end; text-align:center;">  
+
+                <div style="display:flex;">
+
+            <div style="display:flex; align-items:center; margin-left:10px; font-size:12px;">
+                 
+                   <p style="background-color:rgb(70, 14, 224); border-radius:50%; padding-top:3px; padding-bottom:3px; ">
+                   % ${Math.round(((item.price -item.aftersale)/item.price)*100)}
+                   </p>
+                
+            </div> 
+
+            <div>
+
+                <p style="color:black;">
+                ${item.aftersale} تومان
+                </p>
+
+
+                <p style="font-size:10px; color:gray;">
+                <del>${item.price} تومان</del>
+                </p>
+                </div>
+
+                
+
+            </div>
+
+                
+            <div class="cart-controls" style=" color:black;background-color:rgb(151, 140, 180); padding:10px; border-radius:10px;width:140px;margin-right:30px;">
+
+                
+                <button style="background-color:transparent; border:transparent; cursor:pointer;" onclick="updateQuantity('${item.id}','${item.color}','${item.size}',  1)">+</button>
+                <span>${item.quantity}</span>
+                <button style="background-color:transparent; border:transparent; cursor:pointer;" onclick="updateQuantity('${item.id}','${item.color}','${item.size}', -1)">-</button>
+
+                
+
+                <button style="cursor:pointer;" onclick="removeFromCart('${item.id}','${item.color}','${item.size}')">
+                <img src="satl ashqal.svg" style="width:20px; height:20px;">
+                </button>
+
+            </div>
+
+        </div>
+    </div>    
+
+           
+
+        
+        `;
+
+        paymentHTML += `
+
+        <div style="display:flex; justify-content:space-between; margin-right:25px ; margin-left:25px; color:white; overflow:auto;">
+        <p>
+        قیمت کالا 0${index + 1} 
+        </p>
+        <p>
+         ${afterDiscountPrice} تومان
+         </p>
+         </div>
+
+        `;
+    });
+
+    const totalDiscount = totalBeforeDiscount - totalPrice;
+
+
+    totalPriceElement.innerHTML = `
+
+    ${paymentHTML}
+
+    <div style="color:white;display:flex; justify-content:space-between; margin-left:18px; margin-right:25px;">
+
+    <p>
+    سود شما از این خرید
+    <br>
+    <br>
+     مجموعه اقلام
+    </p>
+
+    <p>
+   
+    ${totalDiscount} تومان
+    <br>
+    <br>
+    ${totalPrice} تومان
+    </p>
+
+    </div>
+
+    `;
+
+}
+
+
+const menu = document.getElementById("menu-options");
+const senoqte = document.getElementById("senoqte");
+
+senoqte.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    if(menu.style.display === "block"){
+        menu.style.display = "none";
+    }else{
+        menu.style.display = "block";
+    }
+});
+
+document.addEventListener("click", function () {
+    menu.style.display = "none";
+});
+function clearCart() {
+
+    if(confirm("آیا از پاک کردن همه محصولات مطمئن هستید؟")){
+
+        sessionStorage.removeItem(getCartKey());
+
+        renderCartItems();
+
+        document.getElementById("menu-options").style.display = "none";
+    }
+}
+
+
+function updateQuantity(id, color, size, change) {
+
+    const cart = getCart();
+
+    const itemIndex = cart.findIndex(
+        item =>
+            item.id === id &&
+            item.color === color &&
+            item.size === size
+    );
+
+    if (itemIndex > -1) {
+
+        cart[itemIndex].quantity += change;
+
+        if (cart[itemIndex].quantity <= 0) {
+            cart.splice(itemIndex, 1);
+        }
+
+        saveCart(cart);
+
+
+        renderCartItems();
+    }
+}
+
+function removeFromCart(id, color, size) {
+
+    const cart = getCart();
+
+    const updatedCart = cart.filter(
+        item =>
+            !(
+                item.id === id &&
+                item.color === color &&
+                item.size === size
+            )
+    );
+
+    saveCart(updatedCart);
+
+    renderCartItems();
+
+}
+
+
+function saveCart(cart) {
+
+    sessionStorage.setItem(getCartKey(), JSON.stringify(cart));
+}
+
+document.addEventListener('DOMContentLoaded', renderCartItems);
+
+function getCartKey(){
+    const phone=localStorage.getItem('ph')
+    
+    return `shoppingCart_${phone}`
+}
+
+
+
+         window.onload=function (){
+               const storedname=localStorage.getItem('n')
+            
+            const welcome=document.getElementById("welcomemsg")
+            if(storedname){
+                welcome.textContent=storedname 
+            }else {
+                window.location.href="index.html"
+            }
+            calculateInitialTotal()
+             
+            }
+           
+            
+            
+        
+        
+        
+        
+       
+
+        function logout(){
+            window.location.href="index4.html"
+        }
+
+        
+        
+const allProducts = [
+  { id: 'prod001', name: 'محصول اول', price: 10000, image: 'testimage.jpg' },
+  { id: 'prod002', name: 'محصول دوم', price: 12000, image: 'testimage.jpg' },
+  { id: 'prod003', name: 'محصول سوم', price: 15000, image: 'testimage.jpg' },
+  {
+    id: 'prod004black',
+    name: "محصول چهارم",
+    price: 18000,
+    link:"product4b.html",
+    image: 'testimage.jpg',
+    images: [
+        'testimage.jpg',
+        'testimage2.jpg'
+
+    ],
+    aftersale: 15000,
+
+    specs: {
+      color: 'مشکی',
+      weight: '200 گرم',
+      material:  'پلاستیک',
+      warranty: '12 ماه',
+       size: ['کوچک', 'متوسط', 'بزرگ'],
+    }
+  },
+
+  {
+    id: 'prod004white',
+    name: "محصول چهارم",
+    price: 18000,
+    image: 'testimage.jpg',
+    images: [
+        'testimage3.jpg',
+        'testimage4.jpg'
+
+    ],
+    aftersale: 15000,
+
+    specs: {
+      color: 'سفید',
+      weight: '200 گرم',
+      material: 'پلاستیک',
+      warranty: '12 ماه',
+      size: ['کوچک', 'متوسط', 'بزرگ'],
+    }
+           
+  },
+
+  {
+    id: 'prod004blue',
+    name: "محصول چهارم",
+    price: 18000,
+    image: 'testimage.jpg',
+    images: [
+        'testimage5.jpg',
+        'testimage6.jpg'
+
+    ],
+    aftersale: 15000,
+
+    specs: {
+      color: 'آبی',
+
+      weight: '200 گرم',
+      material:  'پلاستیک',
+      warranty: '12 ماه',
+       size: ['کوچک', 'متوسط', 'بزرگ'],
+    }
+  },
+
+  { id: 'prod005', name: 'محصول پنجم', price: 20000, image: 'testimage.jpg' }
+];
+
+        
+        
+        function displaySearchResults() {
+            const searchInput = document.getElementById("search").value.toLowerCase()
+            const resultsDiv = document.getElementById("results")
+
+            
+            const filteredProducts = allProducts.filter(product =>
+                product.name.toLowerCase().includes(searchInput)
+            )
+            const uniqueProducts=[]
+            filteredProducts.forEach(product=>{
+                const exists = uniqueProducts.find(
+                    item=> item.name===product.name
+                )
+                if(!exists){
+                    uniqueProducts.push(product)
+                }
+            })
+
+            let htmlContent = ""
+
+            if (filteredProducts.length > 0) {
+                uniqueProducts.forEach(product => {
+                    htmlContent += ` 
+                        <a  href="${product.link}"style="text-decoration:none;">
+                            <div id="searchproduct" style=" margin-top:5px;">
+                        <img src="${product.image}" alt="${product.name}" style="width:80px; height:80px;border-radius:5px;
+                        margin-top:25px; margin-left:10px; margin-right:10px;">
+                         نام: ${product.name}
+                         
+                             کد: ${product.id}
+                             
+                     <br> <br>
+                     
+                     </div>
+                        </a>
+                    
+                     
+                     `;
+                    
+                   
+                });
+            } else {
+                htmlContent = "موردی یافت نشد."
+            }
+
+            resultsDiv.innerHTML = htmlContent
+
+
+
+            
+const button= document.getElementById("searchbutton")
+const element=document.getElementById("results")
+const inputfield= document.getElementById("search")
+
+inputfield.addEventListener('input', function(){
+    if(inputfield.value){
+        element.classList.add('active')
+        element.style.display="block"
+
+
+    } else {
+        element.classList.remove('active')
+         element.style.display="none"
+    }
+    
+})
+inputfield.addEventListener('infocus', function(){
+     element.classList.remove('active')
+         element.style.display="none"
+    
+})
+
+  document.addEventListener('click', function(event){
+            if (!element.contains(event.target) && !inputfield.contains(event.target)){
+            element.classList.remove('active')
+            element.style.display="none"
+            }
+            })
+
+
+
+ 
+
+        }
+
+        
+
+            const element2=document.getElementById("results2")
+            const mycategory=document.getElementById("categorization")
+
+                
+                mycategory.addEventListener('click',function(event){
+                event.preventDefault()
+                element2.classList.add('active2')
+                element2.style.display="block"
+                
+            })
+             document.addEventListener('click', function(event){
+            if (!element2.contains(event.target) && !mycategory.contains(event.target)){
+            element2.classList.remove('active2')
+            element2.style.display="none"
+            }
+            })
+
+
+            function showNumber(){
+                const ourNumber=document.getElementById("phonenum")
+                ourNumber.style.visibility="visible"
+            }
+
+            function hideNumber(){
+                const ourNumber=document.getElementById("phonenum")
+                ourNumber.style.visibility="hidden"
+
+            }
+
+        function showcheckinfo(){
+            const checkinformation=document.getElementById("checkinfo")
+            checkinfo.style.display="block"
+            logoutbutton.style.display="none"
+            changingbutton.style.display="none"
+        }
+        function hidecheckinfo(){
+            const checkinformation=document.getElementById("checkinfo")
+            checkinfo.style.display="none"
+        }
+
+    
+
+    function showchangeinfo(event){
+    event.preventDefault()
+    const userpass = localStorage.getItem('p')
+    const checkpassword = document.getElementById("checkpass").value
+    if (userpass === checkpassword){
+        const checkinformation = document.getElementById("checkinfo")
+        checkinformation.style.display = "none"
+        const changeinformation = document.getElementById("changeinfo")
+        changeinformation.style.display = "block"
+    } else {
+        alert("رمز شما اشتباه است.")
+    }
+
+}
+
+
+        function hidechangeinfo(){
+            const changeinformation=document.getElementById("changeinfo")
+            changeinformation.style.display="none"
+        }
+             
+         
+function changeInformation(){
+    
+    const changedname = document.getElementById("changename").value
+    const changednumber = document.getElementById("changenumber").value
+    const changedemail = document.getElementById("changeemail").value
+    const changedpass2 = document.getElementById("changepass2").value
+    const changedpass = document.getElementById("changepass").value
+    let updated = false
+
+    if (changedname){
+       
+        localStorage.setItem('n', changedname)
+        updated=true
+       
+        
+    }
+    if (changednumber){
+        localStorage.setItem('ph', changednumber)
+        updated = true
+    } 
+    if (changedemail){
+        localStorage.setItem('e', changedemail)
+        updated = true
+    } 
+
+    
+    
+    if (changedpass && changedpass2){
+        if(changedpass.length<7 && changedpass2.length<7 ){
+            alert("رمز عبور انتخابی باید بیش از 7 کاراکتر داشته باشد.")
+            return
+        }
+        if (changedpass === changedpass2 ){
+            localStorage.setItem('p', changedpass2)
+            
+            
+        } else if (changedpass !== changedpass2) {
+            alert("رمز جدید و تکرار آن مطابقت ندارند!")
+            return
+        }
+    } else if((changedpass && changedpass2=="") || (changedpass2&&changedpass=="")) {
+        alert("هر دو فیلد مربوط به رمز را باید پر کنید")
+        return
+
+    }
+    
+    if (updated) {
+        
+        const welcome = document.getElementById("welcomemsg")
+        const newName = localStorage.getItem('n')
+        if (newName) {
+            welcome.textContent = newName
+        }
+        alert("اطلاعات شما با موفقیت بهروزرسانی شد!")
+        
+        
+        document.getElementById("changename").value = ""
+        document.getElementById("changenumber").value = ""
+        document.getElementById("changeemail").value = ""
+        document.getElementById("changepass").value = ""
+        document.getElementById("changepass2").value = ""
+        
+        hidechangeinfo()
+    
+    }
+
+    
+    
+}
+
+const welcomemessage=document.getElementById("welcomemsg")
+welcomemessage.addEventListener("mouseover", function(){
+    const logout=document.getElementById("logoutbutton")
+    logout.style.display="block"
+    changingbutton.style.display="block"
+
+    setTimeout(function(){
+    logoutbutton.style.display="none"
+    changingbutton.style.display="none"
+
+    },5000)
+
+
+    
+    
+    
+})
+
+const loginimage=document.getElementById("loginimg")
+loginimage.addEventListener("mouseover", function(){
+    logoutbutton.style.display="block"
+    changingbutton.style.display="block"
+    
+    setTimeout(function(){
+    logoutbutton.style.display="none"
+    changingbutton.style.display="none"
+
+    },5000)
+
+     
+    
+})
+
+    </script>
+</body>
+</html>

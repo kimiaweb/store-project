@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام</title>
+    <style>
+
+         @font-face {
+            font-family:"BYEKAN" ;
+            src: url("BYekan.ttf");
+        }
+        
+            
+        *{
+            box-sizing: border-box;
+            font-family: "BYEKAN";
+        }
+        body{
+            
+            background-color: rgb(138, 133, 133);
+            color: white;
+            
+            position: relative;
+            
+            
+        }
+        div{
+            width: 50%;
+            height: 60px;
+            position: absolute;
+            top:40px ;
+            right: 25%;
+            background-color: rgb(112, 109, 109);
+            border-radius: 10px;
+            text-align: center;
+            font-size: 20px;
+            font-weight:bold ;
+        }
+
+        form{
+            position:relative;
+            top: 120px;
+            right: 25%;
+            width: 50%;
+            height: 400px;
+            background-color: rgb(73, 50, 156);
+            border-radius: 10px;
+            
+            
+        }
+        #fname,#fphone,#femail,#fpass,#fpass2{
+
+            position: absolute;
+            left: 30%;
+            border-radius: 5px;
+            border: transparent;
+            width: 20%;
+            
+            
+        }
+        #fname:focus,#fphone:focus,#femail:focus,#fpass:focus,#fpass2:focus{
+            outline: none;
+        }
+        .labels{
+            position: absolute;
+            right: 10%;
+            
+        }
+        button{
+            position: absolute;
+            left: 10%;
+            width: 70px;
+            height: 45px;
+            border-bottom-left-radius: 25%;
+            border-top-left-radius: 25%;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            
+            
+
+        }
+        button:hover{
+            color:rgb(73, 50, 156) ;
+            font-weight: bold;
+        }
+        #warn{
+            display: none;
+            position: absolute;
+            left: 50%;
+            font-size: smaller;
+            color: red;
+
+
+        }
+        
+        
+
+
+
+
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+    <div>
+        <p>ثبت نام</p>
+    </div>
+<form>
+    <br>
+    <br>
+    
+
+    <label class="labels" for="fname"><span style="color: red; font-size:20px ;"><sup>*</sup> </span>نام و نام خانوادگی خود را وارد کنید:</label>
+    <input id="fname" type="text" name="" required>
+    <br>
+    <br>
+
+    <label class="labels" for="fphone"><span style="color: red; font-size:20px ;"><sup>*</sup> </span>شماره تلفن خود را وارد کنید:</label>
+    <input id="fphone" type="tel" name="" placeholder="09121234567" required >
+    <br>
+    <br>
+
+
+    <label class="labels" for="femail">آدرس ایمیل خود را وارد کنید:</label>
+    <input id="femail" type="email">
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <label class="labels" for="fpass">یک پسورد برای خود انتخاب کنید:</label>
+    <input id="fpass" type="password" required>
+    <br>
+    <br>
+
+    <label class="labels" for="fpass2">پسوردی که انتخاب کردید را تکرار کنید:</label>
+    <input id="fpass2" type="password" required>
+    <br>
+    <br>
+    <button type="submit" onclick="registerUser(event)">ثبت نام</button>
+    <p id="warn">در تکرار رمز خود دقت کنید<span>!</span></p>
+</form>
+
+<script>
+    function registerUser(event){
+        event.preventDefault()
+        const name=document.getElementById("fname").value 
+        const phoneNumber=document.getElementById("fphone").value 
+        const emailaddress=document.getElementById("femail").value 
+        const password2=document.getElementById("fpass2").value 
+        const password=document.getElementById("fpass").value 
+        if (name){
+            localStorage.setItem('n',name)
+
+        }
+        else{
+            alert("نام کاربری خود را انتخاب کنید.")
+            return
+        }
+
+
+        if(phoneNumber){
+            const phoneNumberReg=/^09\d{9}$/
+            if(!phoneNumberReg.test(phoneNumber)){
+                alert("")
+                return
+            } else{
+                localStorage.setItem('ph',phoneNumber)
+            }
+            
+
+        }else{
+            alert("شماره همراه خود را وارد کنید.")
+            return
+        }
+
+
+        if(emailaddress){
+             localStorage.setItem('e',emailaddress)
+
+        }
+
+        
+        if(password && password2){
+            if (password.length<7 && password2.length<7){
+                alert("رمز عبوری انتخابی باید از 7 کاراکتر بیشتر باشد.")
+                return
+            }
+            if(password===password2){
+                window.location.href='login.html'
+                localStorage.setItem('p',password2)
+               
+
+            }else {
+
+                document.getElementById("warn").style.display="block"
+            }
+            
+        } else{
+            alert("رمز عبور را انتخاب کرده و آن را تکرار کنید.")
+        }
+        
+
+        
+    }
+
+
+    
+
+
+
+</script>
+
+    
+</body>
+</html>

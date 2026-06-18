@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه اصلی</title>
+       
+
+    <style>
+        @font-face {
+            font-family:"BYEKAN" ;
+            src: url("BYekan.ttf");
+        }
+        
+            
+        *{
+            box-sizing: border-box;
+            font-family: "BYEKAN";
+        }
+        body{
+            position: relative;
+            background-color: rgb(138, 133, 133);
+            margin: 0;
+            padding: 0; 
+        }
+
+        nav{
+            background-color: rgb(224, 217, 217);
+            width: 100%;
+            height: 120px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        #navcontainer{
+            position: absolute;
+            right: 0;
+            width: 80%;
+            height: 100%;
+        }
+
+        #listnav{
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            flex-direction: row-reverse;
+            position: absolute;
+            right: 2px;
+            top: 20px;
+
+        }
+        
+        .linknav{
+            text-decoration: none;
+           
+        }
+
+        .imgnav:hover{
+            transform: scale(1.1);
+            
+        }
+
+        input{
+           
+            display: inline-block;
+            position: absolute;
+            left: 10%;
+            right: 30%;
+            top:40px;
+            border: transparent;
+            
+
+        
+            border-radius: 20px;
+            height: 35px;
+
+        }
+        input:focus{
+            outline: none;
+        }
+         #searchproduct{
+            transition: 0.6s;
+            color: rgb(73, 50, 156);
+        }
+        #searchproduct:hover{
+            background-color: rgb(161, 161, 202);
+
+        }
+
+        #loginorsignin{
+            position: absolute;
+            left:0;
+            width: 20%;
+            height: 100%;
+            
+            
+
+        }
+
+
+        #loginimg{
+
+            position: absolute;
+            top:36px;
+            left: 180px ;
+
+             
+            
+        }
+
+       
+
+        
+      #login{
+        text-decoration: none;
+        margin: 5px;
+        padding: 18px;
+        background-color: rgb(73, 50, 156);
+        border-top-right-radius: 55%;
+        border-bottom-right-radius: 55%;
+         opacity: 0.4;
+         color: white;
+         position: absolute;
+         left:90px;
+         top: 20px;
+
+      }
+
+      
+     #signin{
+        text-decoration: none;
+        margin: 5px;
+        width: 70px;
+        height: 60px;
+        
+        padding-top: 17px;
+        padding-right: 10px;
+        background-color: rgb(73, 50, 156);
+        border-top-left-radius: 50%;
+         border-bottom-left-radius: 50%;
+         color: white;
+         position: absolute;
+         left: 15px;
+         top: 20px;
+         
+         
+
+
+      }
+
+      article{
+        background-color: rgb(224, 217, 217);
+        width: 100%;
+        height: 260px;
+        position: absolute;
+        top: 700px;
+        z-index: 1;
+      }
+      
+
+      #specialsugestions{
+        background-color: rgb(73, 50, 156);
+        height: 170px;
+        width: 80%;
+        
+        border-radius: 30px;
+        position: absolute;
+        right: 10%;
+        left: 10%;
+        
+        top:40px;
+        
+       
+
+      }
+      pre{
+        font-size: 27px;
+        color: white;
+        position: absolute;
+        right:0;
+        top: 0;
+       
+        
+      }
+
+      #speciallist{
+        list-style-type: none;
+        display: flex;
+        gap: 70px;
+        
+        position: absolute;
+        top: 10px;;
+        right: 15%;
+        left: 8%;
+        
+        overflow-x: auto;
+        overflow-y: hidden;
+        
+        
+      }
+      
+      .s1{
+        width:200px;
+        height:100px;
+        background-color:rgb(224, 217, 217) ;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        
+      }
+      .s1:hover{
+        transform: scale(1.02);
+      }
+      
+      .linkarticle{
+        color: white;
+        text-decoration: none;
+        
+        
+      }
+      #s12{
+        
+        height: auto;
+        width: auto;
+        font-size: 10px;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+        
+        
+      }
+      .specialimg{
+        height: 80px;
+        width: 70px;
+        object-fit: contain;
+        border-radius: 15px;
+        margin: 0;
+        margin-right:8px ;
+
+      }
+      
+
+      #phoneimg{
+        position: fixed;
+        bottom: 10px;
+        left: 6px;
+        z-index: 4;
+      }
+       #phoneimg:hover{
+        transform: scale(1.1);
+      }
+      
+      #phonenum{
+        visibility: hidden;
+        
+        position: fixed;
+        bottom: 6px;
+        left: 62px;
+        z-index: 5;
+        color: white;
+        background-color: rgb(73, 50, 156);
+       
+        
+
+      }
+      
+
+    .active{
+        background-color: white;
+        
+        border-radius: 15px;
+    
+        color:rgb(73, 50, 156) ;
+        font-size: 18px;
+        padding: 5px;
+    
+        
+        height: 280px;
+        position: absolute;
+        top: 52px;
+        left: 32%;
+        right: 28%;
+        z-index: 6;
+        overflow: auto;
+
+    }
+    #results{
+        display: none;
+    }
+    .active2{
+        background-color: white;
+        border-radius: 15px;
+        color: black;
+        font-size: 18px;
+        height: 400px;
+        width: 180px;
+        position: absolute;
+        top: 100px;
+        z-index: 3;
+        overflow: auto;
+        
+        
+    }
+    #results2{
+        position: absolute;
+        z-index: 4;
+        
+        right: 10px;
+        display: none;
+        
+    }
+    #listcategory{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        list-style-type: none;
+
+    }
+    .linkcategory{
+        text-decoration: none;
+    }
+ footer{
+        background-color: rgb(194, 189, 189);
+        color: black;
+        width: 100%;
+        height: 220px;
+        position: absolute;
+        top: 960px;
+       
+        display: flex;
+        flex-direction: column;
+     }
+#footer1{
+    
+    
+    
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    height: 20%;
+    
+}
+#footer1a{
+    display: flex;
+}
+
+#footer3{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    height: 80%;
+    
+
+}
+#footer3a{
+    
+    width: 82%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+#footer3aa,#footer3ab,#footer3ac{
+    text-align: center;
+}
+#footer3b{
+    
+    width: 18%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.footerIcon{
+    cursor: pointer;
+}
+.footerIcon:hover{
+    transform: scale(1.1);
+}
+   
+    
+      
+            
+        
+
+       
+    </style>
+    
+
+
+</head>
+<body>
+    <header>
+
+
+
+    </header>
+   
+    <nav>
+    <div id="navcontainer">
+        <ul id="listnav">
+        <li><a id="categorization" class="linknav" href=""><img class="imgnav" src="Category.svg" style="width: 55px; height: 55px;"></a></li>
+        
+        <li ><a  class="linknav" href=""><img class="imgnav" src="Home.svg" style="width: 55px; height: 55px;"></a></li>
+        </ul>
+
+        
+        <input id="search" type="text" placeholder="   جستجو " oninput="displaySearchResults()">
+
+    </div>
+        
+
+    
+    <div id="loginorsignin">
+         <img id="loginimg" src="Asset 530.svg" style="width: 40px; height: 40px;">
+
+         
+         <a id="login" href="login.html">ورود</a>
+         <a id="signin" href="signin.html">ثبت نام</a>
+    
+
+
+    </div>
+    
+    </nav>
+    
+    
+
+    <article>
+       
+        
+        <div id="specialsugestions">
+            <pre >
+       
+      پیشنهاد
+       ویژه</pre>
+
+        <ul id="speciallist">
+            <li><div class="s1" id="ss1">
+                <a class="linkarticle" href="product4a.html"><img class="specialimg" src="testimage.jpg"></a>
+                  <div id="s12">
+                    <div><p style="color: rgb(73, 50, 156); font-size: larger; font-weight: bold; padding: 0; margin: 0;">محصول چهارم</p></div>
+                    <div>
+                        
+                        <p style="color: rgb(41, 34, 66); font-size: 13px; padding: 0; margin: 0;">
+                         <span style="background-color:rgb(41, 34, 66) ; color: white; border-radius: 50%; font-size: 11px; padding: 2px;">17%</span>
+                         15000تومان</p></div>
+                    <div style="color: rgb(138, 133, 133);"><del ><p style="font-size: 10px; padding: 0; margin: 0;">18000تومان</p></del></div>
+                  </div>
+                <div>
+             </li>
+            <li><div class="s1" id="ss2">
+                <a class="linkarticle" href=""><img class="specialimg" src="testimage.jpg"></a>
+                  <div id="s12">
+                    <div><p style="color: rgb(73, 50, 156); font-size: larger; font-weight: bold; padding: 0; margin: 0;">نام و مشخصات محصول</p></div>
+                    <div>
+                        
+                        <p style="color: rgb(41, 34, 66); font-size: 13px; padding: 0; margin: 0;">
+                         <span style="background-color:rgb(41, 34, 66) ; color: white; border-radius: 50%; font-size: 11px; padding: 2px;">10%</span>
+                         200000تومان</p></div>
+                    <div style="color: rgb(138, 133, 133);"><del ><p style="font-size: 10px; padding: 0; margin: 0;">220000تومان</p></del></div>
+                  </div>
+                <div>
+            </li>
+            <li><div class="s1">
+                <a class="linkarticle" href=""><img class="specialimg" src="testimage.jpg"></a>
+                  <div id="s12">
+                    <div><p style="color: rgb(73, 50, 156); font-size: larger; font-weight: bold; padding: 0; margin: 0;">نام و مشخصات محصول</p></div>
+                    <div>
+                        
+                        <p style="color: rgb(41, 34, 66); font-size: 13px; padding: 0; margin: 0;">
+                         <span style="background-color:rgb(41, 34, 66) ; color: white; border-radius: 50%; font-size: 11px; padding: 2px;">10%</span>
+                         110000تومان</p></div>
+                    <div style="color: rgb(138, 133, 133);"><del ><p style="font-size: 10px; padding: 0; margin: 0;">110000تومان</p></del></div>
+                  </div>
+                <div>
+            </li>
+            <li><div class="s1">
+                <a class="linkarticle" href=""><img class="specialimg" src="testimage.jpg"></a>
+                  <div id="s12">
+                    <div><p style="color: rgb(73, 50, 156); font-size: larger; font-weight: bold; padding: 0; margin: 0;">نام و مشخصات محصول</p></div>
+                    <div>
+                        
+                        <p style="color: rgb(41, 34, 66); font-size: 13px; padding: 0; margin: 0;">
+                         <span style="background-color:rgb(41, 34, 66) ; color: white; border-radius: 50%; font-size: 11px; padding: 2px;">10%</span>
+                         110000تومان</p></div>
+                    <div style="color: rgb(138, 133, 133);"><del ><p style="font-size: 10px; padding: 0; margin: 0;">110000تومان</p></del></div>
+                  </div>
+                <div>
+            </li>
+             <li><div class="s1">
+                <a class="linkarticle" href=""><img class="specialimg" src="testimage.jpg"></a>
+                  <div id="s12">
+                    <div><p style="color: rgb(73, 50, 156); font-size: larger; font-weight: bold; padding: 0; margin: 0;">نام و مشخصات محصول</p></div>
+                    <div>
+                        
+                        <p style="color: rgb(41, 34, 66); font-size: 13px; padding: 0; margin: 0;">
+                         <span style="background-color:rgb(41, 34, 66) ; color: white; border-radius: 50%; font-size: 11px; padding: 2px;">10%</span>
+                         110000تومان</p></div>
+                    <div style="color: rgb(138, 133, 133);"><del ><p style="font-size: 10px; padding: 0; margin: 0;">110000تومان</p></del></div>
+                  </div>
+                <div>
+            </li>
+            <li><div class="s1">
+                <a class="linkarticle" href=""><img class="specialimg" src="testimage.jpg"></a>
+                  <div id="s12">
+                    <div><p style="color: rgb(73, 50, 156); font-size: larger; font-weight: bold; padding: 0; margin: 0;">نام و مشخصات محصول</p></div>
+                    <div>
+                        
+                        <p style="color: rgb(41, 34, 66); font-size: 13px; padding: 0; margin: 0;">
+                         <span style="background-color:rgb(41, 34, 66) ; color: white; border-radius: 50%; font-size: 11px; padding: 2px;">10%</span>
+                         110000تومان</p></div>
+                    <div style="color: rgb(138, 133, 133);"><del ><p style="font-size: 10px; padding: 0; margin: 0;">110000تومان</p></del></div>
+                  </div>
+                <div>
+            </li>
+            <li><div class="s1">
+                <a class="linkarticle" href=""><img class="specialimg" src="testimage.jpg"></a>
+                  <div id="s12">
+                    <div><p style="color: rgb(73, 50, 156); font-size: larger; font-weight: bold; padding: 0; margin: 0;">نام و مشخصات محصول</p></div>
+                    <div>
+                        
+                        <p style="color: rgb(41, 34, 66); font-size: 13px; padding: 0; margin: 0;">
+                         <span style="background-color:rgb(41, 34, 66) ; color: white; border-radius: 50%; font-size: 11px; padding: 2px;">10%</span>
+                         110000تومان</p></div>
+                    <div style="color: rgb(138, 133, 133);"><del ><p style="font-size: 10px; padding: 0; margin: 0;">110000تومان</p></del></div>
+                  </div>
+                <div>
+            </li>
+
+
+        
+        </ul>
+
+
+
+        </div>
+        
+        <img id="phoneimg" src="Asset 630.svg" style="width: 46px; height: 46px;" onmouseover="showNumber()" onmouseout="hideNumber()">
+        <p id="phonenum">86867</p>
+        
+    </article>
+
+    <section>
+
+        <p id="results"> </p>
+        <div id="results2">
+            <ul id="listcategory">
+                <li><a class="linkcategory" href="">a</a></li>
+                <li><a class="linkcategory" href="">b</a></li>
+            </ul>
+            
+
+        </div>
+      
+     
+
+    </section>
+
+
+    <aside></aside>
+
+
+    <footer>
+        <div id="footer1">
+            <div id="footer1a">
+                <p>تلفن پشتیبانی:
+                    22219627-021
+                </p>
+                <p style="margin-right: 10px; margin-left: 10px; color: gray;">
+                    |
+                </p>
+                <p>
+                    هفت روز هفته پاسخگوی شما هستیم.
+                </p>
+            </div>
+
+        </div>
+
+        <div id="footer2">
+            
+        </div>
+
+        <div id="footer3">
+            <div id="footer3a">
+
+                <div id="footer3aa">
+                    <h4>درباره‌ی سایت</h4>
+                    <a href="" style="color: rgb(75, 74, 74); text-decoration: none;">انتقادات و پیشنهادات</a>
+                    <br>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;">گزارش باگ</a>
+
+                </div>
+
+
+                <div id="footer3ab">
+
+                    <h4>خدمات مشتریان</h4>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;" >رویه‌های بازگرداندن کالا</a>
+                    <br>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;">شرایط پرداخت در محل</a>
+
+                </div>
+
+
+                <div id="footer3ac"> 
+
+                    <h4>راهنمای خرید از سایت</h4>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;" >نحوه‌ی ثبت سفارش</a>
+                    <br>
+                    <a href="" style="color: rgb(75, 74, 74);text-decoration: none;">رویه ارسال سفارش</a>
+
+                </div>
+            </div>
+            
+            <div id="footer3b">
+        
+            <img class="footerIcon" src="Instagram (رسانیکا) (1).png" alt="" width="40px" height="40px">
+            <img class="footerIcon" src="Email (رسانیکا) (1).png" alt="" width="40px" height="40px">
+            <img class="footerIcon" src="Location (رسانیکا).png" alt="" width="40px" height="40px">
+
+            </div>
+            
+        </div>
+
+
+
+    </footer>
+
+
+
+
+    <script>
+
+
+        
+const allProducts = [
+  { id: 'prod001', name: 'محصول اول', price: 10000, image: 'testimage.jpg' },
+  { id: 'prod002', name: 'محصول دوم', price: 12000, image: 'testimage.jpg' },
+  { id: 'prod003', name: 'محصول سوم', price: 15000, image: 'testimage.jpg' },
+  {
+    id: 'prod004black',
+    name: "محصول چهارم",
+    price: 18000,
+    link:"product4a.html",
+    image: 'testimage.jpg',
+    images: [
+        'testimage.jpg',
+        'testimage2.jpg'
+
+    ],
+    aftersale: 15000,
+
+    specs: {
+      color: 'مشکی',
+      weight: '200 گرم',
+      material:  'پلاستیک',
+      warranty: '12 ماه',
+       size: ['کوچک', 'متوسط', 'بزرگ'],
+    }
+  },
+
+  {
+    id: 'prod004white',
+    name: "محصول چهارم",
+    price: 18000,
+    image: 'testimage.jpg',
+    images: [
+        'testimage3.jpg',
+        'testimage4.jpg'
+
+    ],
+    aftersale: 15000,
+
+    specs: {
+      color: 'سفید',
+      weight: '200 گرم',
+      material: 'پلاستیک',
+      warranty: '12 ماه',
+      size: ['کوچک', 'متوسط', 'بزرگ'],
+    }
+           
+  },
+
+  {
+    id: 'prod004blue',
+    name: "محصول چهارم",
+    price: 18000,
+    image: 'testimage.jpg',
+    images: [
+        'testimage5.jpg',
+        'testimage6.jpg'
+
+    ],
+    aftersale: 15000,
+
+    specs: {
+      color: 'آبی',
+
+      weight: '200 گرم',
+      material:  'پلاستیک',
+      warranty: '12 ماه',
+       size: ['کوچک', 'متوسط', 'بزرگ'],
+    }
+  },
+
+  { id: 'prod005', name: 'محصول پنجم', price: 20000, image: 'testimage.jpg' }
+];
+        
+
+         
+        function displaySearchResults() {
+            const searchInput = document.getElementById("search").value.toLowerCase()
+            const resultsDiv = document.getElementById("results")
+
+            
+            const filteredProducts = allProducts.filter(product =>
+                product.name.toLowerCase().includes(searchInput)
+            )
+            const uniqueProducts=[]
+            filteredProducts.forEach(product=>{
+                const exists = uniqueProducts.find(
+                    item=> item.name===product.name
+                )
+                if(!exists){
+                    uniqueProducts.push(product)
+                }
+            })
+
+            let htmlContent = ""
+
+            if (filteredProducts.length > 0) {
+                uniqueProducts.forEach(product => {
+                    htmlContent += ` 
+                        <a  href="${product.link}"style="text-decoration:none;">
+                            <div id="searchproduct" style=" margin-top:5px;">
+                        <img src="${product.image}" alt="${product.name}" style="width:80px; height:80px;border-radius:5px;
+                        margin-top:25px; margin-left:10px; margin-right:10px;">
+                         نام: ${product.name}
+                         
+                             کد: ${product.id}
+                             
+                     <br> <br>
+                     
+                     </div>
+                        </a>
+                    
+                     
+                     `;
+                    
+                   
+                });
+            } else {
+                htmlContent = "موردی یافت نشد."
+            }
+
+            resultsDiv.innerHTML = htmlContent
+
+
+
+
+
+            
+const button= document.getElementById("searchbutton")
+const element=document.getElementById("results")
+const inputfield= document.getElementById("search")
+
+inputfield.addEventListener('input', function(){
+    if(inputfield.value){
+        element.classList.add('active')
+        element.style.display="block"
+
+
+    } else {
+        element.classList.remove('active')
+         element.style.display="none"
+    }
+    
+})
+inputfield.addEventListener('infocus', function(){
+     element.classList.remove('active')
+         element.style.display="none"
+    
+})
+
+  document.addEventListener('click', function(event){
+            if (!element.contains(event.target) && !inputfield.contains(event.target)){
+            element.classList.remove('active')
+            element.style.display="none"
+            }
+            })
+
+
+
+ 
+
+        }
+
+        
+
+            const element2=document.getElementById("results2")
+            const mycategory=document.getElementById("categorization")
+
+                
+                mycategory.addEventListener('click',function(event){
+                event.preventDefault()
+                element2.classList.add('active2')
+                element2.style.display="block"
+                
+            })
+             document.addEventListener('click', function(event){
+            if (!element2.contains(event.target) && !mycategory.contains(event.target)){
+            element2.classList.remove('active2')
+            element2.style.display="none"
+            }
+            })
+
+             function showNumber(){
+                const ourNumber=document.getElementById("phonenum")
+                ourNumber.style.visibility="visible"
+            }
+
+            function hideNumber(){
+                const ourNumber=document.getElementById("phonenum")
+                ourNumber.style.visibility="hidden"
+
+            }
+
+
+
+           
+
+           
+
+                
+
+                 
+
+
+            
+               
+
+            
+            
+        
+       
+
+
+
+ 
+
+
+    </script>
+
+</body>
+</html>
